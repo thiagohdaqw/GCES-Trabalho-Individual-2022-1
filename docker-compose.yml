@@ -21,7 +21,17 @@ services:
       - ./library_back:/home/library_back
     ports:
       - 8000:8000
-    entrypoint: 
-      /home/library_back/start.sh
     depends_on:
       - library_db
+    entrypoint: 
+      ./start.sh
+
+  library_front:
+    build: ./library_front/
+    volumes:
+      - ./library_front:/home/library_front
+      - /home/library_front/node_modules
+    ports:
+      - 3000:3000
+    entrypoint:
+      npm start
