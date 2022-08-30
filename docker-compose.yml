@@ -11,6 +11,7 @@ services:
 
   library_back:
     build: ./library_back/
+    restart: always
     environment:
       POSTGRES_PASSWORD: gces
       POSTGRES_USER: gces
@@ -28,6 +29,7 @@ services:
 
   library_front:
     build: ./library_front/
+    restart: always
     volumes:
       - ./library_front:/home/library_front
       - /home/library_front/node_modules
