@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  library_db:
+    image: postgres:14.5
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: gces
+      POSTGRES_USER: gces
+      POSTGRES_DB: library_db
