@@ -8,3 +8,20 @@ services:
       POSTGRES_PASSWORD: gces
       POSTGRES_USER: gces
       POSTGRES_DB: library_db
+
+  library_back:
+    build: ./library_back/
+    environment:
+      POSTGRES_PASSWORD: gces
+      POSTGRES_USER: gces
+      POSTGRES_DB: library_db
+      POSTGRES_HOST: library_db
+      POSTGRES_PORT: 5432
+    volumes:
+      - ./library_back:/home/library_back
+    ports:
+      - 8000:8000
+    entrypoint: 
+      /home/library_back/start.sh
+    depends_on:
+      - library_db
