@@ -16,12 +16,12 @@ class Book(models.Model):
     )
 
     def __str__(self) -> str:
-        return f'{self.title}. {self.author}'
+        return f"{self.title}. {self.author}"
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['title', 'author', 'release_year'],
-                name='unique_together_book_keys',
+                fields=["title", "author", "release_year"],
+                name="unique_together_book_keys",
             )
         ]

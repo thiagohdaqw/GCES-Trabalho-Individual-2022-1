@@ -21,10 +21,10 @@ from rest_framework import routers
 from books.views import BookViewSet
 
 router = routers.DefaultRouter()
-router.register(r'books', BookViewSet, basename='books')
+router.register(r"books", BookViewSet, basename="books")
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path("api/", include(router.urls)),
     path("auth/", include("accounts.urls")),
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
 ]

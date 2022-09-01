@@ -7,13 +7,13 @@ from .serializers import BookSerializer
 class BookTests(unittest.TestCase):
     def setUp(self) -> None:
         self.book_attr = {
-            'title': 'Ensaio sobre a Cegueira',
-            'author': 'José Saramago',
-            'release_year': 1995,
+            "title": "Ensaio sobre a Cegueira",
+            "author": "José Saramago",
+            "release_year": 1995,
         }
         self.serializer_data = {
-            'title': 'Maus: a história de um sobrevivente',
-            'author': 'Art Spiegelman',
+            "title": "Maus: a história de um sobrevivente",
+            "author": "Art Spiegelman",
         }
 
         self.book = Book.objects.create(**self.book_attr)
@@ -23,8 +23,8 @@ class BookTests(unittest.TestCase):
         self.book.delete()
 
     def test_valid_fields(self):
-        valid_fields = ('id', 'title', 'author', 'release_year', 'is_rented', 'renter')
-        invalid_fields = ('random_field', 'foo', 'bar')
+        valid_fields = ("id", "title", "author", "release_year", "is_rented", "renter")
+        invalid_fields = ("random_field", "foo", "bar")
         data = self.serializer.data
         self.assertEqual(set(data.keys()), set(valid_fields))
         self.assertNotEqual(set(data.keys()), set(invalid_fields))
@@ -33,4 +33,4 @@ class BookTests(unittest.TestCase):
         serializer = BookSerializer(data=self.serializer_data)
 
         self.assertFalse(serializer.is_valid())
-        self.assertEqual(set(serializer.errors), set(['release_year']))
+        self.assertEqual(set(serializer.errors), set(["release_year"]))
