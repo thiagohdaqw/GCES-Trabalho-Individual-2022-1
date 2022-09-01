@@ -1,4 +1,4 @@
-FROM gces-trabalho-individual-front:latest AS library_front
+FROM thiagohdaqw/library_front:latest AS library_front
 
 RUN npm run build
 

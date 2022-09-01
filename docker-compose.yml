@@ -15,6 +15,7 @@ services:
 
   library_back:
     build: ./library_back/
+    image: thiagohdaqw/library_back
     restart: always
     environment:
       POSTGRES_PASSWORD: gces
@@ -37,7 +38,7 @@ services:
 
   library_front:
     build: ./library_front/
-    image: gces-trabalho-individual-front
+    image: thiagohdaqw/library_front
     restart: always
     volumes:
       - ./library_front:/home/library_front
@@ -55,6 +56,7 @@ services:
 
   library_nginx:
     build: ./nginx/
+    image: thiagohdaqw/library_nginx
     restart: always
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
