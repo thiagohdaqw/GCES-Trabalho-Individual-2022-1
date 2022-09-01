@@ -22,3 +22,6 @@ jobs:
 
       - name: Test frontend
         run: docker-compose run --rm --no-deps --entrypoint "npm run test --watchAll=false" library_front 
+
+      - name: Lint frontend
+        run: docker-compose run --rm --no-deps --entrypoint "npm run lint" library_front
