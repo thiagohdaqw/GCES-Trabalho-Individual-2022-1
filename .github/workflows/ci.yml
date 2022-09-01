@@ -19,3 +19,6 @@ jobs:
 
       - name: Test backend
         run: docker-compose run --rm --entrypoint "bash test.sh" library_back
+
+      - name: Test frontend
+        run: docker-compose run --rm --no-deps --entrypoint "npm run test --ci" library_front 
