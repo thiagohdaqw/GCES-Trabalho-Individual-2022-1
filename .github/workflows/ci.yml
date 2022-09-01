@@ -18,4 +18,4 @@ jobs:
         run: docker-compose build
 
       - name: Test backend
-        run: docker-compose run --rm --entrypoint ./test.sh library_back
+        run: docker-compose run --rm --entrypoint "bash test.sh" library_back
