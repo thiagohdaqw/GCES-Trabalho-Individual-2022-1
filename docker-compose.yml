@@ -29,6 +29,7 @@ services:
 
   library_front:
     build: ./library_front/
+    image: gces-trabalho-individual-front
     restart: always
     volumes:
       - ./library_front:/home/library_front
@@ -37,3 +38,11 @@ services:
       - 3000:3000
     entrypoint:
       npm start
+
+  library_nginx:
+    build: ./nginx/
+    restart: always
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8080:8080
